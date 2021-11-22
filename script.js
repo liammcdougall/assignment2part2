@@ -1,27 +1,52 @@
+const contactList = [  
+	{ 
+		name: "Oliver Queen", 
+		phone: "778-555-1234", 
+		address: "101 Main St, Star City, USA",    
+		email: "greenarrow@watchtower.com",  
+	},  
+
+	{    
+		name: "Jessica Cruz",    
+		phone: "123-555-5555",    
+		address: "Portland Oregon",    
+		email: "greenlantern@watchtower.com",  
+	}
+]
+
 
 function cleanUpIndex() {
     //removes all of the .contact elements
     element = document.querySelector(".main")
-    element.innerHTML = ""
+    element.innerHTML = " "
 
 }
 
 function createSingleIndex(contact) {
+    // needs to print the name of the given contact
+    //console.log(contact.name)
+    //element.classList.add("contact")
+    const type = document.querySelector(".main")
 
-    <p> ${contact[0].name} </p>
+    type.innerHTML += `
+    <a href="page3.html"><div class="contact"><p>${contact}</p></div></a>
     
-
-
+    `
     
 }
 
-function renderIndex(contactList) {
-    // sub with for of loop    
+function renderIndex(contactList) {   
+    
+    for (i=0; i < contactList.length; i++) {
 
-    for (let i = 0; i < contactList.length; i++) {
-        createSingleIndex(contact)
+       // console.log(contactList[i]["name"])
+
+       createSingleIndex(contactList[i]["name"])
+
       }
-
+    
+   
+       
 }
 
 
@@ -47,21 +72,6 @@ function renderCreate(contact) {
 }
 
 
-const contactList = [  
-	{ 
-		name: "Oliver Queen", 
-		phone: "778-555-1234", 
-		address: "101 Main St, Star City, USA",    
-		email: "greenarrow@watchtower.com",  
-	},  
-
-	{    
-		name: "Jessica Cruz",    
-		phone: "123-555-5555",    
-		address: "Portland Oregon",    
-		email: "greenlantern@watchtower.com",  
-	}
-]
 
 
 
