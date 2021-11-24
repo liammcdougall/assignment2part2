@@ -17,6 +17,7 @@ const contactList = [ 
 
 function cleanUpIndex() {
     //removes all of the .contact elements
+
     element = document.querySelector(".main")
     element.innerHTML = " "
 
@@ -120,6 +121,13 @@ function renderCreate() {
 
 
 
+//2
+//Attach an event listener to the sidebar link that says "Contacts".
+//Any click on this should call a clear function that clears the main area, 
+//then call the renderIndex function, passing in the global contact list.
+//Also this listener should cancel the event, so that the link is not followed in the normal way.
+
+document.querySelector('.nav-home').addEventListener('click', cleanUpIndex)
 
 
 
