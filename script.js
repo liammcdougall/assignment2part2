@@ -142,12 +142,27 @@ function renderCreate() {
                     </div>
                 </form>
             </div>`
+    
+    7//
+    //Modify your renderCreate function, add an event listener to the "Cancel" button.  It should act the same
+    //as if you press the "Contacts" link in the sidebar.  I leave the details to you.      
+    //Yes, this is nearly identical to (5), thank you for noticing.
     const cancel_button = document.getElementById('cancel')
     cancel_button.addEventListener("click", (event)=> {
         event.preventDefault()
         cleanUpIndex()
         renderIndex(contactList)
     })   
+    
+    const save_button = document.getElementById("savecontact")
+    save_button.addEventListener("click", (event) => {
+        const objinsert ={
+            name: '',
+            email: '',
+            phone: '',
+            address: ''
+        }
+    })
 }
 
 
