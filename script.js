@@ -72,6 +72,9 @@ function cleanUpView() {
     element = document.querySelector(".contactinfo")
     element.innerHTML = " "
 }
+//5
+//Modify your renderView function, add an event listener to the "Close" button.  It should act the same
+//as if you press the "Contacts" link in the sidebar.  I leave the details to you.
 
 function renderView(contact) {
     //Create a function called renderView that creates all of the DOM nodes that are unique to the View page.
@@ -79,7 +82,6 @@ function renderView(contact) {
     // which is an object that represents a single contact  
     element = document.querySelector(".contactinfo")
     element.innerHTML +=
-
     `<div class="contactname">
                 ${contact["name"]}
                 <img src="./img/profile.jpg" class="profilepic" alt="Profile picture">
@@ -90,8 +92,13 @@ function renderView(contact) {
             <div class="buttons">
                 <button class="button edit" value="Edit">Edit</button>
                 <button class="button close" value="Close">Close</button>
-            </div>
-    `
+            </div>`
+    const close_button = document.querySelector(".button close")
+    close_button.addEventListener("click", (event) => {
+        event.preventDefault()
+        cleanUpIndex()
+        renderIndex(contactList)
+    })
 }
 
 function cleanUpCreate() {
@@ -134,8 +141,13 @@ function renderCreate() {
                         <button type="reset" class="button cancel" id="cancel" name="cancel">Cancel</button>
                     </div>
                 </form>
-            </div>
-    `    
+            </div>`
+    const cancel_button = document.getElementById('cancel')
+    cancel_button.addEventListener("click", (event)=> {
+        event.preventDefault()
+        cleanUpIndex()
+        renderIndex(contactList)
+    })   
 }
 
 
