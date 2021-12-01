@@ -1,3 +1,24 @@
+//2
+//Attach an event listener to the sidebar link that says "Contacts".
+//Any click on this should call a clear function that clears the main area, 
+//then call the renderIndex function, passing in the global contact list.
+//Also this listener should cancel the event, so that the link is not followed in the normal way.
+
+const contact_button = document.querySelector('.nav-home')
+contact_button.addEventListener('click', (event) => {
+    console.log(contact_button), event.preventDefault(), cleanUpIndex(), renderIndex(contactList)
+})
+
+//3
+//Attach an event listener to the sidebar link that says "Create New Contact".
+//Any click on this should call a clear function that clears the main area, then call the renderCreate function.
+//Also this listener should cancel the event, so that the link is not followed in the normal way.
+
+const createnewcontact_button = document.querySelector('.nav')
+createnewcontact_button.addEventListener('click', (event) =>{
+    console.log(createnewcontact_button), event.preventDefault(), cleanUpCreate(), renderCreate()
+})
+
 const contactList = [  
 	{ 
 		name: "Oliver Queen", 
@@ -153,6 +174,13 @@ function renderCreate() {
         cleanUpIndex()
         renderIndex(contactList)
     })   
+
+    //8
+    //And now for the real muscle.   This is where we do something interesting.
+    //In your renderCreate function, add an event listener to the "Save" button.
+    //In this event listener, create a new object, with keys like "name", "email", "phone", and "address".
+    //For each of those keys, the value should be pulled out of the appropriate input.
+    //At first, to test, once you have created this object, you could `console.log` it, to see that you're making it correctly.
     
     const save_button = document.getElementById("savecontact")
     save_button.addEventListener("click", (event) => {
@@ -167,25 +195,6 @@ function renderCreate() {
 
 
 
-//2
-//Attach an event listener to the sidebar link that says "Contacts".
-//Any click on this should call a clear function that clears the main area, 
-//then call the renderIndex function, passing in the global contact list.
-//Also this listener should cancel the event, so that the link is not followed in the normal way.
 
-const contact_button = document.querySelector('.nav-home')
-contact_button.addEventListener('click', (event) => {
-    console.log(contact_button), event.preventDefault(), cleanUpIndex(), renderIndex(contactList)
-})
-
-//3
-//Attach an event listener to the sidebar link that says "Create New Contact".
-//Any click on this should call a clear function that clears the main area, then call the renderCreate function.
-//Also this listener should cancel the event, so that the link is not followed in the normal way.
-
-const createnewcontact_button = document.querySelector('.nav')
-createnewcontact_button.addEventListener('click', (event) =>{
-    console.log(createnewcontact_button), event.preventDefault(), cleanUpCreate(), renderCreate()
-})
 
 
