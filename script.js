@@ -22,15 +22,34 @@ function cleanUpIndex() {
     element.innerHTML = " "
 
 }
+//4
+//Modify your createSingleIndex function so that the entire singleIndex DOM element has a click handler.
+//This click handler is a bit more complicated.
+//First, it must figure out the "name" that it was created with.  For example, "Bugs Bunny".
+//Then, it must search through the global contact list to find a contact that has that name.
+//Then, if it found that contact, it should
+//a) call a clear function to clear out the main area, and
+//b) call renderView(), passing it the contact that it found
+//Also this listener should cancel the event, so that the link is not followed in the normal way.
+//I am not *requiring* you to put all the code for this task inside the createSingleIndex function, but
+//I am *advising you* that with the tools I have shown you, that's probably easiest.
 
 function createSingleIndex(contact) {
     // needs to print the name of the given contact
-    //console.log(contact.name)
-    //element.classList.add("contact")
-    const type = document.querySelector(".main")
-
-    type.innerHTML += `
-    <a href="page3.html"><div class="contact"><p>${contact}</p></div></a>`
+    let index_tag = document('div')
+    index_tag.className = 'contact'
+    let index_p = document.createTextNode(`${contact.name}`)
+    index_tag.appendChild(index_p)
+    index_tag.addEventListener('click', (event) =>{
+        event.preventDefault(), contactName = event.target.textContent
+        for (let i = 0; i < contactList.length; i++){
+            if (contactList[i].name == contactName){
+                cleanUpIndex()
+                renderView(contactList[i])
+            }
+        }
+    })
+    return index_tag
 }
 
 function renderIndex(contactList) {   
@@ -141,6 +160,5 @@ const createnewcontact_button = document.querySelector('.nav')
 createnewcontact_button.addEventListener('click', (event) =>{
     console.log(createnewcontact_button), event.preventDefault(), cleanUpCreate(), renderCreate()
 })
-
 
 
