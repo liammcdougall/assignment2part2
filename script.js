@@ -36,7 +36,7 @@ function cleanUpIndex() {
 
 function createSingleIndex(contact) {
     // needs to print the name of the given contact
-    let index_tag = document('div')
+    let index_tag = document.querySelector('div')
     index_tag.className = 'contact'
     let index_p = document.createTextNode(`${contact.name}`)
     index_tag.appendChild(index_p)
@@ -147,7 +147,7 @@ function renderCreate() {
 //Also this listener should cancel the event, so that the link is not followed in the normal way.
 
 const contact_button = document.querySelector('.nav-home')
-contactbutton.addEventListener('click', (event) => {
+contact_button.addEventListener('click', (event) => {
     console.log(contact_button), event.preventDefault(), cleanUpIndex(), renderIndex(contactList)
 })
 
