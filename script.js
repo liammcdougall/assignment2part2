@@ -127,7 +127,12 @@ function renderCreate() {
 //then call the renderIndex function, passing in the global contact list.
 //Also this listener should cancel the event, so that the link is not followed in the normal way.
 
-document.querySelector('.nav-home').addEventListener('click', cleanUpIndex)
+const contactbutton = document.querySelector('.nav-home')
+contactbutton.addEventListener('click', (event) => {
+    console.log(contactbutton), event.preventDefault(), cleanUpIndex(), renderIndex(contactList)}
+)
+
+
 
 
 
